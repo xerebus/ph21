@@ -1,0 +1,242 @@
+\documentclass{article}
+
+% math, graphics, and formatting
+\usepackage{amsmath,amsbsy,amssymb,amsthm,fullpage,graphicx,pgfplots,breqn}
+\usepackage{verbatim,mathtools}
+
+% physics
+\usepackage{physics}
+\newcommand{\h}{\hbar}
+\renewcommand{\vec}{\mathbf}
+
+% Times New Roman
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+%\usepackage{libertine}
+%\usepackage[libertine]{newtxmath}
+
+% section numbering: e.g. 2b (ii)
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection\alph{subsection}}
+\renewcommand\thesubsubsection{\thesubsection\,(\roman{subsubsection})}
+
+% theorems & proofs
+\theoremstyle{definition}
+\newtheorem*{prop}{Claim}
+\newtheorem*{claim}{Claim}
+\newtheorem*{prob}{Problem}
+\newtheorem*{obs}{Observation}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{thm}{Theorem}
+\newtheorem*{disc}{Discussion}
+\newtheorem*{defn}{Definition}
+\newtheorem*{eg}{Example}
+
+% derivatives
+\newcommand{\pp}{\partial}
+\newcommand{\pd}[2]{\ensuremath\frac{\pp #1}{\pp #2}}
+\newcommand{\pdd}[2]{\ensuremath\frac{\pp^2 #1}{\pp #2^2}}
+\renewcommand{\dd}[2]{\ensuremath\frac{d#1}{d#2}}
+\newcommand{\ddd}[2]{\ensuremath\frac{d^2 #1}{d #2^2}}
+\newcommand{\del}{\nabla}
+
+% sets and complex numbers
+\newcommand{\R}{\mathbb R}
+\renewcommand{\Re}{\textrm{Re}}
+\renewcommand{\Im}{\textrm{Im}}
+%\renewcommand{\bar}{\overline}
+\newcommand{\nin}{\not\in}
+\newcommand{\str}[1]{\ensuremath{\langle #1 \rangle}}
+
+% probability and stats
+\renewcommand{\var}{\ensuremath\mathbf{Var}}
+\newcommand{\E}{\ensuremath\mathbf{E}}
+\renewcommand{\P}{\ensuremath\mathbf{P}}
+
+% measurement
+\newcommand{\un}[1]{\;\mathrm{#1}}
+\newcommand{\ch}[1]{\mathrm{#1}}
+
+% Greek letters are hard
+\newcommand{\ep}{\varepsilon}
+\newcommand{\om}{\omega}
+
+% formatting
+\renewcommand{\sp}[1]{\;\;\;\text{ #1 }\;\;\;}
+\newcommand{\plop}[2]{
+    \begin{figure}[ht!]\centering
+        \includegraphics[width=0.8\textwidth]{#1}
+        \caption{\label{#1}#2}
+    \end{figure}
+}
+
+\usepackage{fancyhdr}
+\usepackage[margin=1in, headheight=50pt]{geometry}
+\pagestyle{fancy}
+\lhead{\textbf{Ph21 Set 2}}
+\chead{}
+\rhead{Aritra Biswas}
+\setlength{\headsep}{20pt}
+
+\begin{document}
+
+\section{Theory}
+
+\subsection{Self-consistency of the Fourier series}
+
+\begin{obs}
+The following is a valid representation of the Dirac delta function:
+\begin{align*}
+\sum_{k = -\infty}^\infty e^{iky} = 2\pi \delta(y).
+\end{align*}
+\end{obs}
+
+\begin{lemma}
+$\delta(ay) = \delta(y)/a$.
+\end{lemma}
+
+\begin{proof} We start with a change of variables $y \mapsto y/a$,
+which leaves the limits of integraiton unchanged:
+\begin{align*}
+\int_{-\infty}^\infty f(y) \delta(ay) \, dy
+&= 
+\int_{-\infty}^\infty f(y/a) \delta(y) \, d(y/a)
+=
+{1 \over a} \int_{-\infty}^\infty f(y/a) \delta(y) \, dy
+= {f(0) \over a}
+=
+\int_{-\infty}^\infty f(y) \left[\delta(y) \over a \right] \, dy.
+\end{align*}
+\end{proof}
+
+\begin{claim}
+The Fourier series, as defined in equations (3) and (2) in the notes,
+is self-consistent.
+\end{claim}
+
+\begin{proof}
+Using the definition of $\tilde h_k$ and $f_k \equiv k/L$,
+\begin{align*}
+h(x) &= \sum_{k = -\infty}^\infty
+\left[
+    {1 \over L} \int_0^L h(x') e^{2\pi i k x' / L} \, dx'
+\right]
+e^{-2\pi i k x / L}
+\\&=
+\int_0^L h(x') \left[
+    {1 \over L} \sum_{k = -\infty}^\infty e^{2\pi i k (x' - x) / L}
+\right] \, dx'
+\\&=
+\int_0^L h(x') \delta(x' - x) \, dx'
+= h(x).
+\end{align*}
+\end{proof}
+
+\subsection{Linear combination of exponentials}
+
+\begin{lemma}
+$\sin(\theta + \phi) = \sin\theta\cos\phi + \cos\theta\sin\phi.$
+\end{lemma}
+\begin{proof}
+Using Euler's formula:
+\begin{align*}
+e^{i(\theta + \phi)} &= e^{i\theta} e^{i\phi} \\
+\cos(\theta + \phi) + i \sin(\theta + \phi)
+&= (\cos\theta + i \sin\theta)(\cos\phi + i \sin\phi)
+\\&=
+\cos\theta\cos\phi - \sin\theta\sin\phi
++ i(\sin\theta\cos\phi + \cos\theta\sin\phi).
+\end{align*}
+Equating imaginary parts yields the desired result.
+\end{proof}
+
+\begin{claim}
+$A \sin(2\pi x / L + \phi)$ is a linear combination of
+$e^{-2\pi i x / L}$ and
+$e^{2\pi i x / L}$ over the scalar field $\mathbb C$.
+\end{claim}
+\begin{proof}
+We use the trigonometric identity
+above and the definitions of $\sin$ and $\cos$
+in terms of complex exponentials (from Euler's formula):
+\begin{align*}
+A \sin(2\pi x / L + \phi) &= (A \cos\phi) \sin(2\pi x / L)
++ (A\sin\phi) \cos(2\pi x / L)
+\\&=
+(A\cos\phi) \left(e^{2\pi i x / L} - e^{-2\pi i x / L} \over 2i\right)
++ (A\sin\phi) \left(e^{2\pi i x / L} + e^{-2\pi i x / L} \over 2\right)
+\\&=
+\left[A (\sin\phi - i \cos\phi) \over 2\right] e^{2\pi i x / L} 
++ \left[A (\sin\phi + i \cos\phi) \over 2\right] e^{-2\pi i x / L}. 
+\end{align*}
+\end{proof}
+
+\subsection{Redundancy in Fourier coefficients of real functions}
+
+\begin{claim}
+For $h(x) \in \mathbb R$, the Fourier coefficients $\tilde h_k$ satisfy
+$\tilde h_{-k} = \tilde h^*_k$.
+\end{claim}
+
+\begin{proof}
+Conjugation is linear: for $A, B \in \mathbb R$ and
+$\alpha, \beta \in \mathbb C$, $(A\alpha + B\beta)^* = A\alpha^*
++ B\beta^*$. Therefore, to show that two integral expressions are
+conjugates, it suffices to show that their integrands are conjugates:
+\begin{align*}
+\tilde h_{-k} &= {1 \over L} \int_0^L h(x) e^{-2\pi ikx/L} \, dx
+\\&= {1 \over L} \int_0^L h(x) \left(e^{2\pi ikx/L}\right)^* \, dx
+\\&= {1 \over L} \int_0^L \left[h(x) e^{2\pi ikx/L}\right]^* \, dx
+\\&= \left[ {1 \over L} \int_0^L h(x) e^{2\pi ikx/L} \, dx \right]^*
+= \tilde h_k^*.
+\end{align*}
+\end{proof}
+
+\subsection{Convolution theorem}
+
+\begin{claim}
+The Fourier coefficients of the product $H(x) = h^{(1)}(x) h^{(2)}(x)$
+are given by the convolution:
+\begin{align*}
+\tilde H_k = \sum_{k' = -\infty}^\infty \tilde h^{(1)}_{k-k'}
+\tilde h^{(2)}_{k'}.
+\end{align*}
+\end{claim}
+\begin{proof}
+We express $h^{(1)}(x)$
+and $h^{(2)}(x)$ as Fourier series and find the Cauchy product $H(x)$:
+\begin{align*}
+H(x) &= 
+\left[
+\sum_{k = -\infty}^\infty \tilde h^{(1)}_{k} e^{-2\pi ikx/L}
+\right]
+\left[
+\sum_{k' = -\infty}^\infty \tilde h^{(2)}_{k'} e^{-2\pi ik'x/L}
+\right]
+\\&=
+\sum_{k = -\infty}^\infty \sum_{k' = -\infty}^\infty
+\left[ \tilde h^{(2)}_{k'} e^{-2\pi ik' x/L} \right]
+\left[ \tilde h^{(1)}_{k - k'} e^{-2\pi i(k - k') x/L} \right]
+\\&=
+\sum_{k = -\infty}^\infty \sum_{k' = -\infty}^\infty \tilde
+h^{(1)}_{k - k'}
+\tilde h^{(2)}_{k'} e^{-2\pi i k x/L}
+\\&=
+\sum_{k = -\infty}^\infty \tilde H_k e^{-2\pi i k x/L},
+\end{align*}
+Equating the cofficients of the sum over $k$, we have the desired
+result.
+\end{proof}
+
+\subsection{Testing the \texttt{numpy} FFT}
+
+We compare analytical and numerical methods of obtaining the Fourier
+series of the following two functions:
+\begin{align*}
+g(t) = A \cos (ft + \varphi) + C \sp{and}
+h(t) = A \exp [-B (t - L/2)^2 ].
+\end{align*}
+
+
+
+\end{document}

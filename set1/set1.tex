@@ -1,0 +1,81 @@
+\documentclass{article}
+
+% math, graphics, and formatting
+\usepackage{amsmath,amsbsy,amssymb,amsthm,fullpage,graphicx,pgfplots,breqn}
+\usepackage{verbatim,mathtools}
+
+% physics
+\usepackage{physics}
+\newcommand{\h}{\hbar}
+\renewcommand{\vec}{\mathbf}
+
+% Times New Roman
+\usepackage{txfonts}
+
+% section numbering: e.g. 2b (ii)
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection\alph{subsection}}
+\renewcommand\thesubsubsection{\thesubsection\,(\roman{subsubsection})}
+
+% theorems & proofs
+\theoremstyle{definition}
+\newtheorem*{prop}{Claim}
+\newtheorem*{claim}{Claim}
+\newtheorem*{prob}{Problem}
+\newtheorem*{obs}{Observation}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{thm}{Theorem}
+\newtheorem*{disc}{Discussion}
+\newtheorem*{defn}{Definition}
+\newtheorem*{eg}{Example}
+
+% derivatives
+\newcommand{\pp}{\partial}
+\newcommand{\pd}[2]{\ensuremath\frac{\pp #1}{\pp #2}}
+\newcommand{\pdd}[2]{\ensuremath\frac{\pp^2 #1}{\pp #2^2}}
+\renewcommand{\dd}[2]{\ensuremath\frac{d#1}{d#2}}
+\newcommand{\ddd}[2]{\ensuremath\frac{d^2 #1}{d #2^2}}
+\newcommand{\del}{\nabla}
+
+% sets and complex numbers
+\newcommand{\R}{\mathbb R}
+\renewcommand{\Re}{\textrm{Re}}
+\renewcommand{\Im}{\textrm{Im}}
+%\renewcommand{\bar}{\overline}
+\newcommand{\nin}{\not\in}
+\newcommand{\str}[1]{\ensuremath{\langle #1 \rangle}}
+
+% probability and stats
+\renewcommand{\var}{\ensuremath\mathbf{Var}}
+\newcommand{\E}{\ensuremath\mathbf{E}}
+
+% measurement
+\newcommand{\un}[1]{\;\mathrm{#1}}
+\newcommand{\ch}[1]{\mathrm{#1}}
+
+% formatting
+\renewcommand{\sp}[1]{\;\;\;\text{ #1 }\;\;\;}
+\newcommand{\plop}[2]{
+    \begin{figure}[ht!]\centering
+        \includegraphics[width=0.8\textwidth]{#1}
+        \caption{\label{#1}#2}
+    \end{figure}
+}
+
+\usepackage{fancyhdr}
+\usepackage[margin=1in, headheight=50pt]{geometry}
+\pagestyle{fancy}
+\lhead{\textbf{Ph21 Set 1}}
+\chead{}
+\rhead{Aritra Biswas}
+\setlength{\headsep}{20pt}
+
+
+\begin{document}
+
+\plop{fig1.pdf}{Magnitude vs. observation time (MJD) for Her X-1, obtained
+from CRTS by HTML extraction.}
+\plop{fig2.pdf}{Magnitude vs. observation time (MJD) for Her X-1, obtained
+from CRTS by \texttt{VOTable} extraction.}
+
+\end{document}
