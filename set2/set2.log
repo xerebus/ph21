@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.4.25)  30 APR 2015 08:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.4.25)  2 MAY 2015 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1927,53 +1927,53 @@ Package ifvtex Info: VTeX not detected.
 ) (./set2.aux)
 \openout1 = `set2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 81.
-LaTeX Font Info:    Try loading font information for OML+ntxmi on input line 81
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 82.
+LaTeX Font Info:    Try loading font information for OML+ntxmi on input line 82
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2012/03/22 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMS/ntxsy/m/n on input line 81.
-LaTeX Font Info:    Try loading font information for OMS+ntxsy on input line 81
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMS/ntxsy/m/n on input line 82.
+LaTeX Font Info:    Try loading font information for OMS+ntxsy on input line 82
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/omsntxsy.fd
 File: omsntxsy.fd 2012/11/14 Fontinst v1.933 font definitions for OMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 81.
-LaTeX Font Info:    Try loading font information for U+ntxexa on input line 81.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 82.
+LaTeX Font Info:    Try loading font information for U+ntxexa on input line 82.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 81.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 82.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 82.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Try loading font information for T1+ntxrx on input line 81.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Try loading font information for T1+ntxrx on input line 82.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/t1ntxrx.fd
 File: t1ntxrx.fd 2014/08/14 v1.0
 )
 LaTeX Font Info:    Font shape `T1/ntxrx/m/n' will be
-(Font)              scaled to size 10.0pt on input line 81.
+(Font)              scaled to size 10.0pt on input line 82.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -2032,7 +2032,7 @@ ABD: EveryShipout initializing macros
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.11} into 
 your preamble.
- on input line 81.
+ on input line 82.
 
 \c@mv@tabular=\count186
 \c@mv@boldtabular=\count187
@@ -2071,88 +2071,89 @@ your preamble.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Font shape `T1/ntxrx/m/n' will be
-(Font)              scaled to size 14.4pt on input line 83.
+(Font)              scaled to size 14.4pt on input line 84.
 LaTeX Font Info:    Font shape `T1/ntxrx/bx/n' will be
-(Font)              scaled to size 14.4pt on input line 83.
+(Font)              scaled to size 14.4pt on input line 84.
 LaTeX Font Info:    Font shape `T1/ntxrx/m/n' will be
-(Font)              scaled to size 12.0pt on input line 85.
+(Font)              scaled to size 12.0pt on input line 86.
 LaTeX Font Info:    Font shape `T1/ntxrx/bx/n' will be
-(Font)              scaled to size 12.0pt on input line 85.
+(Font)              scaled to size 12.0pt on input line 86.
 LaTeX Font Info:    Font shape `T1/ntxrx/bx/n' will be
-(Font)              scaled to size 10.0pt on input line 88.
+(Font)              scaled to size 10.0pt on input line 89.
 LaTeX Font Info:    Font shape `T1/ntxrx/m/n' will be
-(Font)              scaled to size 7.3pt on input line 89.
+(Font)              scaled to size 7.3pt on input line 90.
 LaTeX Font Info:    Font shape `T1/ntxrx/m/n' will be
-(Font)              scaled to size 5.5pt on input line 89.
-LaTeX Font Info:    Try loading font information for U+ntxsya on input line 89.
+(Font)              scaled to size 5.5pt on input line 90.
+LaTeX Font Info:    Try loading font information for U+ntxsya on input line 90.
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsya.fd
 File: untxsya.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsya.
 )
-LaTeX Font Info:    Try loading font information for U+ntxsyb on input line 89.
+LaTeX Font Info:    Try loading font information for U+ntxsyb on input line 90.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsyb.fd
 File: untxsyb.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyb.
 )
-LaTeX Font Info:    Try loading font information for U+ntxmia on input line 89.
+LaTeX Font Info:    Try loading font information for U+ntxmia on input line 90.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxmia.
 )
-LaTeX Font Info:    Try loading font information for U+ntxsyc on input line 89.
+LaTeX Font Info:    Try loading font information for U+ntxsyc on input line 90.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
 LaTeX Font Info:    Font shape `T1/ntxrx/m/it' will be
-(Font)              scaled to size 10.0pt on input line 98.
+(Font)              scaled to size 10.0pt on input line 99.
 
 
 Package amsmath Warning: Foreign command \over;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 109.
+(amsmath)                 on input line 110.
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-LaTeX Font Info:    Try loading font information for T1+ntxtt on input line 231
+LaTeX Font Info:    Try loading font information for T1+ntxtt on input line 232
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/bx/n' will be
-(Font)              scaled to size 12.0pt on input line 231.
- [2] (./set2.aux) ) 
+(Font)              scaled to size 12.0pt on input line 232.
+ [2] [3] (./set2.aux) ) 
 Here is how much of TeX's memory you used:
- 30965 strings out of 495020
- 706805 string characters out of 6181324
+ 30967 strings out of 495020
+ 706816 string characters out of 6181324
  806161 words of memory out of 5000000
  33637 multiletter control sequences out of 15000+600000
- 45380 words of font info for 92 fonts, out of 8000000 for 9000
+ 46696 words of font info for 94 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 62i,12n,76p,10386b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}<
-/usr/share/texlive/texmf-dist/fonts/type1/public/newtx/rntxmi.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/newtx/rntxmi7.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/newtx/rtxmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/r
-txr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/txfonts/txsyb.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8
-a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on set2.pdf (2 pages, 74635 bytes).
+ 62i,14n,76p,10386b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.e
+nc}</usr/share/texlive/texmf-dist/fonts/type1/public/newtx/rntxmi.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/newtx/rntxmi7.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/newtx/rtxmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfon
+ts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/txfonts/txmia.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfo
+nts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on set2.pdf (3 pages, 81143 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 84 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

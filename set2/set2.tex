@@ -12,6 +12,7 @@
 % Times New Roman
 \usepackage{newtxtext}
 \usepackage{newtxmath}
+\renewcommand{\mathbb}{\varmathbb}
 %\usepackage{libertine}
 %\usepackage[libertine]{newtxmath}
 
@@ -237,6 +238,56 @@ g(t) = A \cos (ft + \varphi) + C \sp{and}
 h(t) = A \exp [-B (t - L/2)^2 ].
 \end{align*}
 
+\subsubsection{Cosine}
+
+Since $\cos t$ has period $2\pi$, $g(t)$ has period $2\pi/f \equiv L$.
+The Fourier coefficients are:
+\begin{align*}
+\tilde g_k
+&= {1 \over L} \int_0^L [A \cos(ft + \varphi) + C]
+e^{2\pi i k t / L} \, dt \\
+&= {f \over 2\pi} \int_0^{2\pi/f} [A \cos(ft + \varphi) + C]
+e^{i k f t} \, dt \\
+&= {f \over 2\pi}
+\left[
+A \int_0^{2\pi/f} \cos(ft + \varphi)
+e^{i k f t} \, dt
++ C  \int_0^{2\pi/f}
+e^{i k f t} \, dt
+\right]\\
+&= {f \over 2\pi}
+\left[
+A \int_0^{2\pi/f} \cos(ft + \varphi)
+e^{i k f t} \, dt
+\right]
+=
+\begin{cases}
+{A \over 2} e^{-i\varphi} & k = 1 \\
+0 & k \not= 1.
+\end{cases}
+\end{align*}
+
+\subsubsection{Gaussian}
+
+We are given that $h(t)$ is $L$-periodic for small enough $B$ -- that is,
+for small enough standard deviation, we can repeat Gaussians
+centered at multiples of the mean without the distributions bleeding into
+each other significantly. The Fourier coefficients are given by:
+\begin{align*}
+\tilde h_k &= {1 \over L} \int_0^L A e^{-B (t - L/2)^2}
+e^{2\pi i k t / L} \, dt \\
+&=
+{A\sqrt\pi \over 2L \sqrt B}
+\left(
+    \erf \gamma_+ + \erf \gamma_-
+\right)
+e^{i\pi k}
+\exp\left(
+    -{\pi^2 k^2 \over B L^2}
+\right)
+\sp{where}
+\gamma_{\pm} \equiv {BL^2 \pm 2\pi i k \over 2L \sqrt B}.
+\end{align*}
 
 
 \end{document}
