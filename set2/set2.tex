@@ -66,13 +66,13 @@
 \renewcommand{\sp}[1]{\;\;\;\text{ #1 }\;\;\;}
 \newcommand{\cc}{\texttt}
 \newcommand{\plop}[2]{
-    \begin{figure}[ht!]\centering
+    \begin{figure}\centering
         \includegraphics[width=0.8\textwidth]{#1}
         \caption{\label{#1}#2}
     \end{figure}
 }
 \newcommand{\sbsplop}[4]{
-    \begin{figure}[ht!]\centering
+    \begin{figure}\centering
         \includegraphics[width=0.49\textwidth]{#1}
         \includegraphics[width=0.49\textwidth]{#2}
         \caption{\label{#1}#3}
@@ -298,7 +298,8 @@ $\tilde g(\omega)$ at $\omega = \pm f/2\pi \approx \pm 0.32$ and
 a tall peak at $\omega = 0$. The width
 of the peaks at $\omega = \pm f/2\pi$
 is due to the sampling -- the input data from
-$g(t)$ does not perfectly trace a cosine.
+$g(t)$ does not perfectly trace a cosine. Inverse-transforming the data
+in figure \ref{Fg.pdf} returns figure \ref{g.pdf} as expected.
 \plop{g.pdf}{$g(t)$ vs. $t$ with paramaters
 $A = 2$, $f = 2$, $\varphi = \pi/2$, and $C = 0$.}
 \plop{Fg.pdf}{The Fourier transform $\tilde g(\omega)$ of the cosine
@@ -310,7 +311,8 @@ vs. $\omega$.}
 We are given that $h(t)$ is $L$-periodic for small enough $B$ -- that is,
 for small enough standard deviation, we can repeat Gaussians
 centered at multiples of the mean without the distributions bleeding into
-each other significantly. The Fourier coefficients are given by:
+each other significantly. The Fourier coefficients of the Gaussian
+are given by:
 \begin{align*}
 \tilde h_k &= {1 \over L} \int_0^L A e^{-B (t - L/2)^2}
 e^{2\pi i k t / L} \, dt \\
@@ -324,8 +326,20 @@ e^{i\pi k}
     -{\pi^2 k^2 \over B L^2}
 \right)
 \sp{where}
-\gamma_{\pm} \equiv {BL^2 \pm 2\pi i k \over 2L \sqrt B}.
+\gamma_{\pm} \equiv {BL^2 \pm 2\pi i k \over 2L \sqrt B},
 \end{align*}
+so we expect oscillations of period 2 (due to the $e^{i\pi k}$ factor)
+in a Gaussian envelope centered at $k = 0$.
+Figure \ref{h.pdf} shows the Gaussian, and figure \ref{Fh.pdf} shows
+its Fourier transform. The shapes are as expected, and applying the transform
+and inverse transform in succession returns figure \ref{h.pdf}.
+\plop{h.pdf}{$h(t)$ vs. $t$ with parameters $L = 50$ and $B = 0.25$.}
+\plop{Fh.pdf}{The Fourier transform $\tilde h(\omega)$ of the Gaussian
+vs. $\omega$.}
+
+\section{Uniformly-sampled Arecibo data}
+
+
 
 
 \end{document}
