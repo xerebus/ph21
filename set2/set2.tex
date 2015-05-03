@@ -64,10 +64,19 @@
 
 % formatting
 \renewcommand{\sp}[1]{\;\;\;\text{ #1 }\;\;\;}
+\newcommand{\cc}{\texttt}
 \newcommand{\plop}[2]{
     \begin{figure}[ht!]\centering
         \includegraphics[width=0.8\textwidth]{#1}
         \caption{\label{#1}#2}
+    \end{figure}
+}
+\newcommand{\sbsplop}[4]{
+    \begin{figure}[ht!]\centering
+        \includegraphics[width=0.49\textwidth]{#1}
+        \includegraphics[width=0.49\textwidth]{#2}
+        \caption{\label{#1}#3}
+        {#4}
     \end{figure}
 }
 
@@ -254,18 +263,47 @@ A \int_0^{2\pi/f} \cos(ft + \varphi)
 e^{i k f t} \, dt
 + C  \int_0^{2\pi/f}
 e^{i k f t} \, dt
-\right]\\
-&= {f \over 2\pi}
-\left[
-A \int_0^{2\pi/f} \cos(ft + \varphi)
-e^{i k f t} \, dt
 \right]
 =
 \begin{cases}
-{A \over 2} e^{-i\varphi} & k = 1 \\
-0 & k \not= 1.
+C & k = 0 \\
+{A \over 2} e^{-i\varphi} & k = \pm 1 \\
+0 & k \not= 0, \pm 1.
 \end{cases}
 \end{align*}
+The first integrand is a product of two waves -- a cosine with
+frequency $f$ and a complex exponential with frequency $kf$ --
+over full periods of both waves.
+They will destructively interfere everywhere except when $k = \pm 1$,
+creating matching frequencies.
+The second integral evaluates to $f/2\pi$ at $k = 0$, since the integrand
+is unity, and to 0 everywhere else.
+We expect isolated peaks at $k = \pm 1$ and a larger
+peak at $k = 0$. The FFT algorithm in
+\cc{numpy} makes it easy to convert the $k$-axis to an angular
+frequency axis, so we should see the
+isolated peaks at $\omega = 0, \pm f/2\pi$.
+
+A key difference between our analytical solution and the numerical
+implementation is that here, we chose $L$ to be the period of the cosine.
+In \cc{numpy}, $L$ will be the length of our dataset. As long as $L$
+is large enough to capture a full oscillation, we should see the
+same peaks in the transform, but their height will scale with $L$ as
+the integration interval will be larger.
+
+Figure \ref{g.pdf} shows $g(t)$ and figure \ref{Fg.pdf} shows its
+transform.
+As expected, there are two isolated peaks in the Fourier transform
+$\tilde g(\omega)$ at $\omega = \pm f/2\pi \approx \pm 0.32$ and
+a tall peak at $\omega = 0$. The width
+of the peaks at $\omega = \pm f/2\pi$
+is due to the sampling -- the input data from
+$g(t)$ does not perfectly trace a cosine.
+\plop{g.pdf}{$g(t)$ vs. $t$ with paramaters
+$A = 2$, $f = 2$, $\varphi = \pi/2$, and $C = 0$.}
+\plop{Fg.pdf}{The Fourier transform $\tilde g(\omega)$ of the cosine
+vs. $\omega$.}
+
 
 \subsubsection{Gaussian}
 
