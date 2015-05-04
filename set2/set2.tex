@@ -17,9 +17,9 @@
 %\usepackage[libertine]{newtxmath}
 
 % section numbering: e.g. 2b (ii)
-\renewcommand\thesection{\arabic{section}}
-\renewcommand\thesubsection{\thesection\alph{subsection}}
-\renewcommand\thesubsubsection{\thesubsection\,(\roman{subsubsection})}
+%\renewcommand\thesection{\arabic{section}}
+%\renewcommand\thesubsection{\thesection\alph{subsection}}
+%\renewcommand\thesubsubsection{\thesubsection\,(\roman{subsubsection})}
 
 % theorems & proofs
 \theoremstyle{definition}
@@ -238,6 +238,14 @@ Equating the cofficients of the sum over $k$, we have the desired
 result.
 \end{proof}
 
+Graphically, the convolution of $\tilde h^{(1)}$ and $\tilde h^{(2)}$
+can be interpreted as follows: pick $\tilde h^{(1)}_{k'}$ without loss of
+generality, since convolution is commutative. Flip the other function
+on the $k'$ axis and add an offset: $\tilde h^{(2)}_{k - k'}$. As we
+integrate/sum over $k'$, these two functions are moved together on the same
+axis -- as if one cross through the other -- 
+and the convolution is the integral/sum of their product at each point.
+
 \subsection{Testing the \texttt{numpy} FFT}
 
 We compare analytical and numerical methods of obtaining the Fourier
@@ -279,10 +287,11 @@ creating matching frequencies.
 The second integral evaluates to $f/2\pi$ at $k = 0$, since the integrand
 is unity, and to 0 everywhere else.
 We expect isolated peaks at $k = \pm 1$ and a larger
-peak at $k = 0$. The FFT algorithm in
-\cc{numpy} makes it easy to convert the $k$-axis to an angular
-frequency axis, so we should see the
-isolated peaks at $\omega = 0, \pm f/2\pi$.
+peak at $k = 0$. The FFT implementation in
+\cc{numpy} makes it easy to convert the $k$-axis to a
+frequency axis (cycles per second, not angular), whereas $f$ as given
+is an angular frequency, so we should see the
+isolated peaks at $\bar f = 0, \pm f/2\pi$.
 
 A key difference between our analytical solution and the numerical
 implementation is that here, we chose $L$ to be the period of the cosine.
@@ -294,16 +303,16 @@ the integration interval will be larger.
 Figure \ref{g.pdf} shows $g(t)$ and figure \ref{Fg.pdf} shows its
 transform.
 As expected, there are two isolated peaks in the Fourier transform
-$\tilde g(\omega)$ at $\omega = \pm f/2\pi \approx \pm 0.32$ and
-a tall peak at $\omega = 0$. The width
-of the peaks at $\omega = \pm f/2\pi$
+$\tilde g(\bar f)$ at $\bar f = \pm f/2\pi \approx \pm 0.32$ and
+a tall peak at $\bar f = 0$. The width
+of the peaks at $\bar f = \pm f/2\pi$
 is due to the sampling -- the input data from
 $g(t)$ does not perfectly trace a cosine. Inverse-transforming the data
 in figure \ref{Fg.pdf} returns figure \ref{g.pdf} as expected.
 \plop{g.pdf}{$g(t)$ vs. $t$ with paramaters
 $A = 2$, $f = 2$, $\varphi = \pi/2$, and $C = 0$.}
-\plop{Fg.pdf}{The Fourier transform $\tilde g(\omega)$ of the cosine
-vs. $\omega$.}
+\plop{Fg.pdf}{The Fourier transform $\tilde g(\bar f)$ of the cosine
+vs. $\bar f$.}
 
 
 \subsubsection{Gaussian}
@@ -328,18 +337,72 @@ e^{i\pi k}
 \sp{where}
 \gamma_{\pm} \equiv {BL^2 \pm 2\pi i k \over 2L \sqrt B},
 \end{align*}
-so we expect oscillations of period 2 (due to the $e^{i\pi k}$ factor)
+so we expect oscillations due to the $e^{i\pi k}$ factor
 in a Gaussian envelope centered at $k = 0$.
 Figure \ref{h.pdf} shows the Gaussian, and figure \ref{Fh.pdf} shows
 its Fourier transform. The shapes are as expected, and applying the transform
 and inverse transform in succession returns figure \ref{h.pdf}.
 \plop{h.pdf}{$h(t)$ vs. $t$ with parameters $L = 50$ and $B = 0.25$.}
-\plop{Fh.pdf}{The Fourier transform $\tilde h(\omega)$ of the Gaussian
-vs. $\omega$.}
+\plop{Fh.pdf}{The Fourier transform $\tilde h(\bar f)$ of the Gaussian
+vs. $\bar f$.}
 
 \section{Uniformly-sampled Arecibo data}
 
+\subsection{Isolating the signal frequency}
 
+The Arecibo dataset is sampled at 1 ms intervals, so \cc{numpy.fft.fftfreq}
+will return an $f$-axis in cycles per millisecond, or thousands
+of cycles per second (kHz). We multiply
+by $10^{-3}$ to get our signal in MHz.
 
+Figure \ref{Fa1.pdf} shows the transform of the Arecibo data. A single peak,
+isolated from the noise, is visible. Figure \ref{Fa1_scaled.pdf} shows
+a closer view of this peak. At this scale, the finite width of the peak
+is visible. The peak is maximized at $|f - 1420\un{MHz}| =
+1.37 \times 10^{-4}\un{MHz}$,
+so we detect a signal at $1420 \pm 1.37 \times 10^{-4}
+\un{MHz}$. Here, the $\pm$ does not denote an uncertainty, but is a result
+of the symmetry of the real-valued Fourier transform.
+\plop{Fa1.pdf}{Fourier transform of the Arecibo data. Frequencies [MHz]
+on the $x$-scale have been shifted such that zero corresponds to
+$1420\un{MHz}$.}
+\plop{Fa1_scaled.pdf}{Closer view of the single peak visible in figure
+\ref{Fa1.pdf}.}
+
+\subsection{Gaussian envelope}
+
+If the signal is a perfect sinusoid multiplied by a Gaussian envelope,
+then we expect the Fourier transform of the signal to be the convolution of
+a delta function (transform of the sinusoid) and a Gaussian-enveloped
+wave (transform of the Gaussian as in figure \ref{Fh.pdf}).
+
+Consider the graphical interpretation of convolution as explained in section
+1.4. If we hold the Gaussian transform and move a delta function along the
+same axis, we note that the product of the two functions will be nonzero
+only as the delta function (which is nonzero at an isolated location)
+is moving through the Gaussian transform. The resulting
+convolution will therefore have the same width as the Gaussian transform.
+
+Our Gaussian is of the form:
+\begin{align*}
+h(t) = \exp\left[-{(t - t_0)^2 \over \Delta t^2}\right].
+\end{align*}
+To determine $\Delta t$, we plot several transform $\tilde h(f)$
+generated from different $\Delta t$ and compare the transform width
+to the signal. We saw in section 1.5.2 that a Gaussian with mean
+$L/2$ yields a transform centered around $k = 0$, so we will
+set $t_0 = (32768/2) \un{ms}$ and shift the resulting transform
+to $|f - 1420\un{MHz}| = 1.37 \times 10^{-4} \un{MHz}$, the central
+frequency of the signal.
+
+Figure \ref{Fa1_comp.pdf} shows this comparison for $\Delta t =
+{t_0 \over 2}, {t_0 \over 4}, {t_0 \over 6}, {t_0 \over 8}$. Of these,
+the Gaussian transform for $\Delta t = {t_0 \over 4} = 4096\un{ms}$
+matches the signal transform width best.
+\plop{Fa1_comp.pdf}{Comparison of the signal transform, $\tilde g(f)$,
+with the transforms of Gaussian envelopes, $\tilde h(f)$, with various
+widths $\Delta t$.}
+
+\section{Lomb-Scargle routine for unequally sampled data}
 
 \end{document}

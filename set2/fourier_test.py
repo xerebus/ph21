@@ -41,6 +41,6 @@ for dat in [g_dat, h_dat]:
     plotter.plot(Fg_freq, Fdat.real)
     plotter.show()
 
-    FiFdat = np.fft.fft(Fdat)
-    plotter.plot(t, FiFdat)
+    FiFdat = np.fft.ifft(Fdat)
+    plotter.plot(t, FiFdat.real)
     plotter.show()
