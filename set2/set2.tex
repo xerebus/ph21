@@ -405,4 +405,29 @@ widths $\Delta t$.}
 
 \section{Lomb-Scargle routine for unequally sampled data}
 
+\subsection{Lomb-Scargle implementation from \cc{scipy}}
+
+We use the implementation of the Lomb-Scargle algorithm provided by
+\cc{scipy.signal.lombscargle}.
+
+\subsection{Testing Lomb-Scargle on evenly-sampled data}
+
+Using Lomb-Scargle on evenly-sampled data reveals a
+documented bug in the \cc{scipy} implementation. According to a bug
+report\footnote{available at
+\cc{https://github.com/scipy/scipy/issues/3787}},
+the \cc{scipy} implementation calculates the arctangent of a ratio
+whose denominator is zero for evenly-sampled data.
+
+This issue
+was fixed in \cc{scipy} version 0.15.0, but my distribution provides
+version 0.14.1.
+Since the only reason to use Lomb-Scargle over
+the FFT in practice is to study unevenly-sampled data, I tried to
+simulate unevenly-sampled data from the evenly sampled Arecibo data
+by randomly dropping 10\% of the data and by randomly shifting
+each time by a small amount. However, the \cc{ZeroDivisionError}
+persists, even with real unevenly-sampled data (from CRTS).
+
+
 \end{document}

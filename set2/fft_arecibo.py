@@ -18,13 +18,13 @@ def read_file(path):
 
 def get_fft(dat):
     '''FFT a 1-D array in millisecond timesteps
-    and return a tuple: (frequency_array,
+    and return a tuple: (freqsuency_array,
     fft_array.'''
 
-    freq = 10**(-3) * np.fft.fftfreq(dat.size)
+    freqs = 10**(-3) * np.fft.fftfreq(dat.size)
     Fdat = np.fft.fft(dat).real
 
-    return (freq, Fdat)
+    return (freqs, Fdat)
 
 def get_max_loc(x, y):
     '''Given corresponding x and y arrays of matching size, return
@@ -35,11 +35,11 @@ def get_max_loc(x, y):
 if __name__ == "__main__":
 
     dat = read_file(sys.argv[1])
-    (freq, Fdat) = get_fft(dat)
-    f0 = np.abs(get_max_loc(freq, Fdat))
+    (freqs, Fdat) = get_fft(dat)
+    f0 = np.abs(get_max_loc(freqs, Fdat))
     
     # plot Fourier transform
-    plotter.plot(freq, Fdat, label = r"$\tilde g(f)$")
+    plotter.plot(freqs, Fdat, label = r"$\tilde g(f)$")
     plotter.xlim(0, plotter.xlim()[1]) # plot from 0 to auto
 
     # plot Gaussian transforms to find dt
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     for dt in [t0/2, t0/4, t0/6, t0/8]:
         h = np.exp(-(t - t0)**2 / (dt)**2)
         Fh = np.fft.fft(h)
-        plotter.plot(freq + f0, Fh.real,
+        plotter.plot(freqs + f0, Fh.real,
             label = (r"$\tilde h(f), \Delta t = %i\;\mathrm{ms}$" % dt))
 
     plotter.legend(prop = {"size" : 16})
