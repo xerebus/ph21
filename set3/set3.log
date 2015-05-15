@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.4.25)  12 MAY 2015 23:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.4.25)  15 MAY 2015 02:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2070,53 +2070,150 @@ your preamble.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for T1+ntxr1 on input line 94.
+LaTeX Font Info:    Font shape `T1/ntxrx/m/n' will be
+(Font)              scaled to size 14.4pt on input line 93.
+LaTeX Font Info:    Font shape `T1/ntxrx/bx/n' will be
+(Font)              scaled to size 14.4pt on input line 93.
+LaTeX Font Info:    Try loading font information for T1+ntxr1 on input line 98.
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/t1ntxr1.fd
 File: t1ntxr1.fd 2012/07/29 v1.0
 )
 LaTeX Font Info:    Font shape `T1/ntxr1/m/n' will be
-(Font)              scaled to size 10.0pt on input line 94.
+(Font)              scaled to size 10.0pt on input line 98.
 LaTeX Font Info:    Font shape `T1/ntxrx/m/n' will be
-(Font)              scaled to size 8.0pt on input line 94.
+(Font)              scaled to size 8.0pt on input line 98.
 LaTeX Font Info:    Font shape `T1/ntxr1/m/n' will be
-(Font)              scaled to size 8.0pt on input line 94.
-LaTeX Font Info:    Try loading font information for T1+ntxtt on input line 94.
+(Font)              scaled to size 8.0pt on input line 98.
+LaTeX Font Info:    Try loading font information for T1+ntxtt on input line 98.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 94.
+(Font)              scaled to size 8.0pt on input line 98.
 
 <headphones.jpg, id=4, 1927.2pt x 1084.05pt>
 File: headphones.jpg Graphic file (type jpg)
  <use headphones.jpg>
-Package pdftex.def Info: headphones.jpg used on input line 97.
-(pdftex.def)             Requested size: 375.80544pt x 211.38063pt.
+Package pdftex.def Info: headphones.jpg used on input line 100.
+(pdftex.def)             Requested size: 230.18253pt x 129.46835pt.
+
+<carrots.png, id=5, 2983.145pt x 1826.825pt>
+File: carrots.png Graphic file (type png)
+ <use carrots.png>
+Package pdftex.def Info: carrots.png used on input line 100.
+(pdftex.def)             Requested size: 230.18253pt x 140.93634pt.
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 10.0pt on input line 106.
+LaTeX Font Info:    Font shape `T1/ntxrx/m/n' will be
+(Font)              scaled to size 7.3pt on input line 106.
+LaTeX Font Info:    Font shape `T1/ntxrx/m/n' will be
+(Font)              scaled to size 5.5pt on input line 106.
+LaTeX Font Info:    Try loading font information for U+ntxsya on input line 106
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsya.fd
+File: untxsya.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsya.
+)
+LaTeX Font Info:    Try loading font information for U+ntxsyb on input line 106
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsyb.fd
+File: untxsyb.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyb.
+)
+LaTeX Font Info:    Try loading font information for U+ntxmia on input line 106
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxmia.fd
+File: untxmia.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxmia.
+)
+LaTeX Font Info:    Try loading font information for U+ntxsyc on input line 106
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsyc.fd
+File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
+)
+LaTeX Font Info:    Font shape `T1/ntxrx/m/n' will be
+(Font)              scaled to size 12.0pt on input line 115.
 LaTeX Font Info:    Font shape `T1/ntxrx/bx/n' will be
-(Font)              scaled to size 10.0pt on input line 98.
+(Font)              scaled to size 12.0pt on input line 115.
+
+<sig05_headphones.png, id=7, 448.074pt x 251.4996pt>
+File: sig05_headphones.png Graphic file (type png)
+
+<use sig05_headphones.png>
+Package pdftex.def Info: sig05_headphones.png used on input line 140.
+(pdftex.def)             Requested size: 230.18253pt x 129.19946pt.
+ <sig1_headphones.png, id=8, 448.074pt x 251.4996pt>
+File: sig1_headphones.png Graphic file (type png)
+
+<use sig1_headphones.png>
+Package pdftex.def Info: sig1_headphones.png used on input line 142.
+(pdftex.def)             Requested size: 230.18253pt x 129.19946pt.
+ <sig3_headphones.png, id=9, 448.074pt x 251.4996pt>
+File: sig3_headphones.png Graphic file (type png)
+
+<use sig3_headphones.png>
+Package pdftex.def Info: sig3_headphones.png used on input line 144.
+(pdftex.def)             Requested size: 230.18253pt x 129.19946pt.
+ <sig5_headphones.png, id=10, 448.074pt x 251.4996pt>
+File: sig5_headphones.png Graphic file (type png)
+
+<use sig5_headphones.png>
+Package pdftex.def Info: sig5_headphones.png used on input line 146.
+(pdftex.def)             Requested size: 230.18253pt x 129.19946pt.
+ <sig05_carrots.png, id=11, 448.074pt x 273.9033pt>
+File: sig05_carrots.png Graphic file (type png)
+
+<use sig05_carrots.png>
+Package pdftex.def Info: sig05_carrots.png used on input line 151.
+(pdftex.def)             Requested size: 230.18253pt x 140.7086pt.
+ <sig1_carrots.png, id=12, 448.074pt x 273.9033pt>
+File: sig1_carrots.png Graphic file (type png)
+
+<use sig1_carrots.png>
+Package pdftex.def Info: sig1_carrots.png used on input line 153.
+(pdftex.def)             Requested size: 230.18253pt x 140.7086pt.
+ <sig3_carrots.png, id=13, 448.074pt x 273.9033pt>
+File: sig3_carrots.png Graphic file (type png)
+
+<use sig3_carrots.png>
+Package pdftex.def Info: sig3_carrots.png used on input line 155.
+(pdftex.def)             Requested size: 230.18253pt x 140.7086pt.
+ <sig5_carrots.png, id=14, 448.074pt x 273.9033pt>
+File: sig5_carrots.png Graphic file (type png)
+
+<use sig5_carrots.png>
+Package pdftex.def Info: sig5_carrots.png used on input line 157.
+(pdftex.def)             Requested size: 230.18253pt x 140.7086pt.
+LaTeX Font Info:    Font shape `T1/ntxrx/bx/n' will be
+(Font)              scaled to size 10.0pt on input line 162.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
- <./headphones.jpg>] (./set3.aux) ) 
+ <./headphones.jpg> <./carrots.png>] [2 <./sig05_headphones.png> <./sig1_headph
+ones.png> <./sig3_headphones.png> <./sig5_headphones.png> <./sig05_carrots.png>
+ <./sig1_carrots.png> <./sig3_carrots.png> <./sig5_carrots.png>] (./set3.aux) )
+ 
 Here is how much of TeX's memory you used:
- 30878 strings out of 495020
- 705719 string characters out of 6181324
- 795209 words of memory out of 5000000
- 33608 multiletter control sequences out of 15000+600000
- 12466 words of font info for 25 fonts, out of 8000000 for 9000
+ 31028 strings out of 495020
+ 708216 string characters out of 6181324
+ 799224 words of memory out of 5000000
+ 33707 multiletter control sequences out of 15000+600000
+ 38980 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  62i,11n,76p,10386b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvi
-ps/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ntxsups.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on set3.pdf (1 page, 218605 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
+texmf-dist/fonts/type1/public/newtx/ntxsups.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfo
+nts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on set3.pdf (2 pages, 5348788 bytes).
 PDF statistics:
- 29 PDF objects out of 1000 (max. 8388607)
- 20 compressed objects within 1 object stream
+ 61 PDF objects out of 1000 (max. 8388607)
+ 31 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 63 words of extra memory for PDF output out of 10000 (max. 10000000)
 
