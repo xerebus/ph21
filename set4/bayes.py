@@ -24,19 +24,19 @@ def gen_coin_data(n, H):
 
     return (n, h)
 
-def calc_coin_posterior(data, prior):
+def calc_coin_logposterior(data, prior):
     '''Using Bayes' Theorem, calculate an (unnormalized) posterior
     probability function. prior must be a single-variable function of the
     parameter H. Returns a function of the parameter H.'''
 
-    likelihood = lambda n, h, H: (
+    log_likelihood = lambda n, h, H: np.log(
         spp.binom(n, h) * H**h * (1 - H)**(n - h)
     )
 
     (n, h) = data # get data
-    posterior = lambda H: likelihood(n, h, H) * prior(H)
+    log_posterior = lambda H: log_likelihood(n, h, H) + np.log(prior(H))
 
-    return posterior
+    return log_posterior
 
 def gen_lighthouse_data(n, alpha, beta):
     '''Generate data points x_k for the lighthouse problem. n is the number
@@ -103,11 +103,12 @@ def plot_1dposterior(posterior, p_min, p_max, plot_label = None,
 
     p_grid = np.arange(p_min, p_max, (p_max - p_min) / n_points)
     posterior_grid = [posterior(p) for p in p_grid]
+    posterior_grid -= np.max(posterior_grid) # normalize
     plotter.plot(p_grid, posterior_grid, label = plot_label)
-    plotter.legend()
+    plotter.legend(prop = {"size" : 14})
 
 def plot_2dposterior(posterior, p1_min, p1_max, p2_min, p2_max,
-    n_points = 100.0):
+    plot_label = None, n_points = 100.0):
     '''Plot a posterior distribution of 2 parameters as a contour plot.
     p1 is put on the x-axis.'''
     
@@ -115,5 +116,62 @@ def plot_2dposterior(posterior, p1_min, p1_max, p2_min, p2_max,
     p2_grid = np.arange(p2_min, p2_max, (p2_max - p2_min) / n_points)
 
     posterior_grid = [[posterior(p1, p2) for p1 in p1_grid] for p2 in p2_grid]
-    plotter.imshow(posterior_grid, extent = [p1_min, p1_max, p2_min, p2_max])
+    plotter.imshow(posterior_grid,
+        extent = [p1_min, p1_max, p2_min, p2_max])
+    plotter.title(plot_label)
     plotter.colorbar()
+
+if __name__ == "__main__":
+
+    # COIN TOSSING
+
+    # real parameter value
+    H = 0.38
+
+    # priors
+    prior_uniform = lambda H: 1
+    prior_fair = lambda H: np.exp( -(H - 0.5)**2 / (2 * 0.1**2) )
+    prior_veryfair = lambda H: np.exp( -(H - 0.5)**2 / (2 * 0.05**2) )
+
+    for prior in [prior_uniform, prior_fair, prior_veryfair]:
+        for n in [2, 5, 10, 250]:
+            data = gen_coin_data(n, H)
+            log_posterior = calc_coin_logposterior(data, prior)
+            plot_1dposterior(log_posterior, 0, 1,
+                plot_label = "$H$ = %f, $n$ = %i" % (H, n))
+        plotter.show()
+
+    # LIGHTHOUSE, ALPHA
+
+    # real parameter values
+    alpha = 1.0
+    beta = 1.5
+
+    # priors
+    prior_uniform = lambda alpha: 1
+    prior_wide = lambda alpha: np.exp( -(H - 1.5)**2 / (2 * 0.3**2) )
+    prior_narrow = lambda H: np.exp( -(H - 1.5)**2 / (2 * 0.1**2) )
+
+    for prior in [prior_uniform, prior_wide, prior_narrow]:
+        for n in [10, 20, 50, 250]:
+            data = gen_lighthouse_data(n, alpha, beta)
+            log_posterior = calc_lighthouse_log1dposterior(data, prior, beta)
+            plot_1dposterior(log_posterior, 0, 2,
+                plot_label = ("$\\alpha$ = %f, $\\beta$ = %f, $n$ = %i"
+                % (alpha, beta, n))
+            )
+        plotter.show()
+
+    # LIGHTHOUSE, ALPHA AND BETA
+
+    # using same parameter values and priors
+
+    for prior in [prior_uniform, prior_wide, prior_narrow]:
+        for n in [10, 20, 50, 150]:
+            data = gen_lighthouse_data(n, alpha, beta)
+            log_posterior = calc_lighthouse_log2dposterior(data, prior, prior)
+            plot_2dposterior(log_posterior, 0, 2, 0, 2,
+                plot_label = ("$\\alpha$ = %f, $\\beta$ = %f, $n$ = %i"
+                % (alpha, beta, n))
+            )
+            plotter.show()
