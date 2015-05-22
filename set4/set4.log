@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.4.25)  21 MAY 2015 03:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.4.25)  21 MAY 2015 20:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2128,30 +2128,182 @@ Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 122.
 
+<coin_uniform.pdf, id=4, 578.16pt x 433.62pt>
+File: coin_uniform.pdf Graphic file (type pdf)
+ <use coin_uniform.pdf>
+Package pdftex.def Info: coin_uniform.pdf used on input line 135.
+(pdftex.def)             Requested size: 375.80544pt x 281.84966pt.
+
+<coin_widegauss.pdf, id=5, 578.16pt x 433.62pt>
+File: coin_widegauss.pdf Graphic file (type pdf)
+ <use coin_widegauss.pdf>
+Package pdftex.def Info: coin_widegauss.pdf used on input line 137.
+(pdftex.def)             Requested size: 375.80544pt x 281.84966pt.
+
+<coin_narrowgauss.pdf, id=6, 578.16pt x 433.62pt>
+File: coin_narrowgauss.pdf Graphic file (type pdf)
+ <use coin_narrowgauss.pdf>
+Package pdftex.def Info: coin_narrowgauss.pdf used on input line 139.
+(pdftex.def)             Requested size: 375.80544pt x 281.84966pt.
+
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-] (./set4.aux) ) 
+ <./coin_uniform.pdf>]
+[2 <./coin_widegauss.pdf> <./coin_narrowgauss.pdf
+
+pdfTeX warning: pdflatex (file ./coin_narrowgauss.pdf): PDF inclusion: multiple
+ pdfs with page group included in a single page
+>] <lh1d_uniform.pdf, id=163, 578.16pt x 433.62pt>
+File: lh1d_uniform.pdf Graphic file (type pdf)
+ <use lh1d_uniform.pdf>
+Package pdftex.def Info: lh1d_uniform.pdf used on input line 196.
+(pdftex.def)             Requested size: 375.80544pt x 281.84966pt.
+
+<lh1d_widegauss.pdf, id=164, 578.16pt x 433.62pt>
+File: lh1d_widegauss.pdf Graphic file (type pdf)
+ <use lh1d_widegauss.pdf>
+Package pdftex.def Info: lh1d_widegauss.pdf used on input line 198.
+(pdftex.def)             Requested size: 375.80544pt x 281.84966pt.
+
+<lh1d_narrowgauss.pdf, id=165, 578.16pt x 433.62pt>
+File: lh1d_narrowgauss.pdf Graphic file (type pdf)
+ <use lh1d_narrowgauss.pdf>
+Package pdftex.def Info: lh1d_narrowgauss.pdf used on input line 200.
+(pdftex.def)             Requested size: 375.80544pt x 281.84966pt.
+
+<lh2d_1.pdf, id=166, 578.16pt x 433.62pt>
+File: lh2d_1.pdf Graphic file (type pdf)
+ <use lh2d_1.pdf>
+Package pdftex.def Info: lh2d_1.pdf used on input line 206.
+(pdftex.def)             Requested size: 230.18253pt x 172.63109pt.
+
+<lh2d_2.pdf, id=167, 578.16pt x 433.62pt>
+File: lh2d_2.pdf Graphic file (type pdf)
+ <use lh2d_2.pdf>
+Package pdftex.def Info: lh2d_2.pdf used on input line 207.
+(pdftex.def)             Requested size: 230.18253pt x 172.63109pt.
+
+<lh2d_3.pdf, id=168, 578.16pt x 433.62pt>
+File: lh2d_3.pdf Graphic file (type pdf)
+ <use lh2d_3.pdf>
+Package pdftex.def Info: lh2d_3.pdf used on input line 209.
+(pdftex.def)             Requested size: 230.18253pt x 172.63109pt.
+
+<lh2d_4.pdf, id=169, 578.16pt x 433.62pt>
+File: lh2d_4.pdf Graphic file (type pdf)
+ <use lh2d_4.pdf>
+Package pdftex.def Info: lh2d_4.pdf used on input line 210.
+(pdftex.def)             Requested size: 230.18253pt x 172.63109pt.
+
+<lh2d_5.pdf, id=170, 578.16pt x 433.62pt>
+File: lh2d_5.pdf Graphic file (type pdf)
+ <use lh2d_5.pdf>
+Package pdftex.def Info: lh2d_5.pdf used on input line 216.
+(pdftex.def)             Requested size: 230.18253pt x 172.63109pt.
+
+<lh2d_6.pdf, id=171, 578.16pt x 433.62pt>
+File: lh2d_6.pdf Graphic file (type pdf)
+ <use lh2d_6.pdf>
+Package pdftex.def Info: lh2d_6.pdf used on input line 217.
+(pdftex.def)             Requested size: 230.18253pt x 172.63109pt.
+
+<lh2d_7.pdf, id=172, 578.16pt x 433.62pt>
+File: lh2d_7.pdf Graphic file (type pdf)
+ <use lh2d_7.pdf>
+Package pdftex.def Info: lh2d_7.pdf used on input line 219.
+(pdftex.def)             Requested size: 230.18253pt x 172.63109pt.
+
+<lh2d_8.pdf, id=173, 578.16pt x 433.62pt>
+File: lh2d_8.pdf Graphic file (type pdf)
+ <use lh2d_8.pdf>
+Package pdftex.def Info: lh2d_8.pdf used on input line 220.
+(pdftex.def)             Requested size: 230.18253pt x 172.63109pt.
+
+<lh2d_9.pdf, id=174, 578.16pt x 433.62pt>
+File: lh2d_9.pdf Graphic file (type pdf)
+ <use lh2d_9.pdf>
+Package pdftex.def Info: lh2d_9.pdf used on input line 226.
+(pdftex.def)             Requested size: 230.18253pt x 172.63109pt.
+
+<lh2d_10.pdf, id=175, 578.16pt x 433.62pt>
+File: lh2d_10.pdf Graphic file (type pdf)
+ <use lh2d_10.pdf>
+Package pdftex.def Info: lh2d_10.pdf used on input line 227.
+(pdftex.def)             Requested size: 230.18253pt x 172.63109pt.
+
+<lh2d_11.pdf, id=176, 578.16pt x 433.62pt>
+File: lh2d_11.pdf Graphic file (type pdf)
+ <use lh2d_11.pdf>
+Package pdftex.def Info: lh2d_11.pdf used on input line 229.
+(pdftex.def)             Requested size: 230.18253pt x 172.63109pt.
+
+<lh2d_12.pdf, id=177, 578.16pt x 433.62pt>
+File: lh2d_12.pdf Graphic file (type pdf)
+ <use lh2d_12.pdf>
+Package pdftex.def Info: lh2d_12.pdf used on input line 230.
+(pdftex.def)             Requested size: 230.18253pt x 172.63109pt.
+ [3] [4 <./lh1d_uniform.pdf> <./lh1d_widegauss.pdf
+
+pdfTeX warning: pdflatex (file ./lh1d_widegauss.pdf): PDF inclusion: multiple p
+dfs with page group included in a single page
+>] [5 <./lh1d_narrowgauss.pdf>] [6 <./lh2d_1.pdf> <./lh2d_2.pdf
+
+pdfTeX warning: pdflatex (file ./lh2d_2.pdf): PDF inclusion: multiple pdfs with
+ page group included in a single page
+> <./lh2d_3.pdf
+
+pdfTeX warning: pdflatex (file ./lh2d_3.pdf): PDF inclusion: multiple pdfs with
+ page group included in a single page
+> <./lh2d_4.pdf
+
+pdfTeX warning: pdflatex (file ./lh2d_4.pdf): PDF inclusion: multiple pdfs with
+ page group included in a single page
+>] [7 <./lh2d_5.pdf> <./lh2d_6.pdf
+
+pdfTeX warning: pdflatex (file ./lh2d_6.pdf): PDF inclusion: multiple pdfs with
+ page group included in a single page
+> <./lh2d_7.pdf
+
+pdfTeX warning: pdflatex (file ./lh2d_7.pdf): PDF inclusion: multiple pdfs with
+ page group included in a single page
+> <./lh2d_8.pdf
+
+pdfTeX warning: pdflatex (file ./lh2d_8.pdf): PDF inclusion: multiple pdfs with
+ page group included in a single page
+>] [8 <./lh2d_9.pdf> <./lh2d_10.pdf
+
+pdfTeX warning: pdflatex (file ./lh2d_10.pdf): PDF inclusion: multiple pdfs wit
+h page group included in a single page
+> <./lh2d_11.pdf
+
+pdfTeX warning: pdflatex (file ./lh2d_11.pdf): PDF inclusion: multiple pdfs wit
+h page group included in a single page
+> <./lh2d_12.pdf
+
+pdfTeX warning: pdflatex (file ./lh2d_12.pdf): PDF inclusion: multiple pdfs wit
+h page group included in a single page
+>] (./set4.aux) ) 
 Here is how much of TeX's memory you used:
- 30925 strings out of 495020
- 706249 string characters out of 6181324
- 803234 words of memory out of 5000000
- 33614 multiletter control sequences out of 15000+600000
+ 31025 strings out of 495020
+ 707914 string characters out of 6181324
+ 803307 words of memory out of 5000000
+ 33696 multiletter control sequences out of 15000+600000
  40261 words of font info for 78 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  62i,12n,76p,10386b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
-r/share/texlive/texmf-dist/fonts/type1/public/newtx/rntxmi7.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/newtx/rtxmi7.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-txfonts/txex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf
--dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on set4.pdf (1 page, 57132 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</u
+sr/share/texlive/texmf-dist/fonts/type1/public/newtx/rntxmi7.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/newtx/rtxmi7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/txfonts/txex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txs
+y.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on set4.pdf (8 pages, 1885341 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 37 compressed objects within 1 object stream
+ 3925 PDF objects out of 4296 (max. 8388607)
+ 262 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 103 words of extra memory for PDF output out of 10000 (max. 10000000)
 
