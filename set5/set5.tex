@@ -1,0 +1,252 @@
+\documentclass{article}
+
+% math, graphics, and formatting
+\usepackage{amsmath,amsbsy,amssymb,amsthm,fullpage,graphicx,pgfplots,breqn}
+\usepackage{verbatim,mathtools}
+
+% physics
+\usepackage{physics}
+\newcommand{\h}{\hbar}
+\renewcommand{\vec}{\mathbf}
+
+% Times New Roman
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\renewcommand{\mathbb}{\varmathbb}
+%\usepackage{libertine}
+%\usepackage[libertine]{newtxmath}
+
+% section numbering: e.g. 2b (ii)
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection\alph{subsection}}
+\renewcommand\thesubsubsection{\thesubsection\,(\roman{subsubsection})}
+
+% theorems & proofs
+\theoremstyle{definition}
+\newtheorem*{prop}{Claim}
+\newtheorem*{claim}{Claim}
+\newtheorem*{prob}{Problem}
+\newtheorem*{obs}{Observation}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{thm}{Theorem}
+\newtheorem*{disc}{Discussion}
+\newtheorem*{defn}{Definition}
+\newtheorem*{eg}{Example}
+
+% derivatives
+\newcommand{\pp}{\partial}
+\newcommand{\pd}[2]{\ensuremath\frac{\pp #1}{\pp #2}}
+\newcommand{\pdd}[2]{\ensuremath\frac{\pp^2 #1}{\pp #2^2}}
+\renewcommand{\dd}[2]{\ensuremath\frac{d#1}{d#2}}
+\newcommand{\ddd}[2]{\ensuremath\frac{d^2 #1}{d #2^2}}
+\newcommand{\del}{\nabla}
+
+% sets and complex numbers
+\newcommand{\R}{\mathbb R}
+\renewcommand{\Re}{\textrm{Re}}
+\renewcommand{\Im}{\textrm{Im}}
+%\renewcommand{\bar}{\overline}
+\newcommand{\nin}{\not\in}
+\newcommand{\str}[1]{\ensuremath{\langle #1 \rangle}}
+
+% probability and stats
+\renewcommand{\var}{\ensuremath\mathbf{Var}}
+\newcommand{\E}{\ensuremath\mathbf{E}}
+\renewcommand{\P}{\ensuremath\mathbf{P}}
+
+% measurement
+\newcommand{\un}[1]{\;\mathrm{#1}}
+\newcommand{\ch}[1]{\mathrm{#1}}
+
+% Greek letters are hard
+\newcommand{\ep}{\varepsilon}
+\newcommand{\om}{\omega}
+
+% formatting
+\renewcommand{\sp}[1]{\;\;\;\text{ #1 }\;\;\;}
+\newcommand{\cc}{\texttt}
+\newcommand{\plop}[3]{
+    \begin{figure}\centering
+        \includegraphics[width=0.8\textwidth]{#1}
+        {#2}\vspace{-20pt}
+        \caption{\label{#1}#3}
+    \end{figure}
+}
+\newcommand{\sbsplop}[4]{
+    \begin{figure}\centering
+        \includegraphics[width=0.49\textwidth]{#1}
+        \includegraphics[width=0.49\textwidth]{#2}
+        {#3}\vspace{-20pt}
+        \caption{\label{#1}#4}
+    \end{figure}
+}
+\newcommand{\tbplop}[4]{
+    \begin{figure}\centering
+        \includegraphics[width=0.8\textwidth]{#1}
+        \\
+        \includegraphics[width=0.8\textwidth]{#2}
+        {#3}\vspace{-20pt}
+        \caption{\label{#1}#4}
+    \end{figure}
+}
+
+\usepackage{fancyhdr}
+\usepackage[margin=1in, headheight=50pt]{geometry}
+\pagestyle{fancy}
+\lhead{\textbf{Ph21 Set 5}}
+\chead{}
+\rhead{Aritra Biswas}
+\setlength{\headsep}{20pt}
+
+\begin{document}
+
+%%%\begin{thm}[Bayes' Theorem]
+%%%The probability that a system is well-described a model with
+%%%parameter set $\vec X$, given a dataset $\vec D$ and initial knowledge
+%%%$I$, is:
+%%%\begin{align*}
+%%%\Pr(\vec X | \vec D, I) =
+%%%{
+%%%    \Pr(\vec D | X, I) \cdot \Pr(\vec X | I)
+%%%    \over
+%%%    \Pr(\vec D | I)
+%%%}.
+%%%\end{align*}
+%%%$\Pr(\vec X | I)$ is called the \emph{prior}, $\Pr(\vec X | \vec D, I)$
+%%%the \emph{posterior}, and $\Pr(\vec D | \vec X, I)$ the \emph{likelihood}.
+%%%\end{thm}
+
+\section{Coin tossing}
+
+We consider a sequence of tosses of a biased coin. The coin can be
+modeled with a single parameter $H \in [0, 1]$, the probability of
+heads on a single toss. Thus our parameter set is $\vec X = \{ H \}$.
+
+The dataset $\vec D$ can be reduced to a tuple $(n, h)$ where $h$
+is the number of heads in $n$ tosses. There is no other
+prior information: $I = \emptyset$. The probability of obtaining
+some data given the parameter $H$ is a binomial distribution:
+\begin{align*}
+\Pr(\vec D | \vec X, I) = \Pr\Big( (n, h) | H \Big)
+= {n \choose h} H^h (1 - H)^{n - h},
+\end{align*}
+since there are ${n \choose h}$ ways of getting $h$ heads (each
+with probability $H$) and $n - h$ tails (each with probability
+$1 - H$).
+In this simulation, we choose $H = 0.38$ and three prior distributions:
+\begin{enumerate}
+\item an uniform one,
+\item a Gaussian with $\sigma = 0.2$ centered around $\mu = 0.5$,
+representing a belief that the coin is fair, and
+\item a Gaussian
+with $\sigma = 0.05$ centered around $\mu = 0.5$, representing a stronger
+belief that the coin is fair.
+\end{enumerate}
+
+\plop{pheads_10_10k_u.png}
+{\begin{align*}
+\hat H = 0.416 \pm 0.135
+\sp{}
+\text{95\% confidence interval: }
+[0.16, 0.67]
+\end{align*}}
+{
+Coin model results with true $H = 0.38$, $n = 10$ coin tosses, an uniform
+prior, and a
+needlessly long $l = 10,000$ step chain. Since ten coin tosses is a very
+small dataset, the trace oscillates a lot, and the 95\% confidence interval
+is large.
+}
+
+\plop{pheads_1k_10k_u.png}
+{\begin{align*}
+\hat H = 0.357 \pm 0.014
+\sp{}
+\text{95\% confidence interval: }
+[0.328, 0.385]
+\end{align*}}
+{
+Coin model results with true $H = 0.38$, $n = 1000$ coin tosses, an uniform
+prior, and a
+needlessly long $l = 10,000$ step chain. The larger dataset
+than in Figure \ref{pheads_10_10k_u.png} makes the
+confidence interval much narrower. The trace oscillation amplitude
+is much smaller, and the histogram shows a narrower peak.
+}
+
+\plop{pheads_1k_10k_wg.png}
+{\begin{align*}
+\hat H = 0.383 \pm 0.017
+\sp{}
+\text{95\% confidence interval: }
+[0.347, 0.413]
+\end{align*}}
+{
+Coin model results with true $H = 0.38$, $n = 1000$ coin tosses, a wide
+Gaussian prior ($\mu = 0.5, \sigma = 0.2$), and a
+needlessly long $l = 10,000$ step chain. With 1000 tosses, the results
+from the data dominate over the effects from the prior.
+}
+
+\plop{pheads_1k_10k_ng.png}
+{\begin{align*}
+\hat H = 0.379 \pm 0.016
+\sp{}
+\text{95\% confidence interval: }
+[0.35, 0.408]
+\end{align*}}
+{
+Coin model results with true $H = 0.38$, $n = 1000$ coin tosses, a narrow
+Gaussian prior ($\mu = 0.5, \sigma = 0.05$), and a
+needlessly long $l = 10,000$ step chain. With 1000 tosses, the results
+from the data dominate over the effects from the prior -- despite
+the intial narrowness of the peak. The trace shows that the algorithm
+starts near $H = 0.5$ but almost immediately reaches the desired region.
+}
+
+
+\newpage
+
+\section{Lighthouse problem}
+
+We have a lighthouse at a distance $\beta$ from the shore and
+at a location $\alpha$ along the shore. The lighthouse emits
+flashes at random angles $\theta_k$ which arrive at the shore
+at locations $x_k$. In set 4, we derived the distribution of the
+$x_k$'s: a Lorentzian. We manipulate it into the form required to
+use the Cauchy distribution implemented in \texttt{pymc}:
+\begin{align*}
+f_x(x) &= {\beta / 2\pi \over (x - \alpha)^2 + \beta^2}
+= {1 \over 2} \cdot {1 \over \pi\beta \left[1 + \left(x - \alpha \over \beta
+\right)^2 \right]}
+\end{align*}
+For our study we choose ``true'' values $\alpha = 1.0$ and $\beta = 1.5$.
+We again use three prior distributions:
+\begin{enumerate}
+\item an uniform one,
+\item a wide Gaussian
+centered at $\mu = 1.5$ with $\sigma = 0.3$,
+\item and a narrow Gaussian centered at $\mu = 1.5$ with $\sigma = 0.1$.
+\end{enumerate}
+Results for the one-dimensional case, where $\beta$ is known but $\alpha$
+is not, are shown in Figures 4-6.
+In the two-dimensional case, we use identical priors for each parameter.
+Results are shown in Figures 7-9.
+
+\tbplop{alpha_100.png}{beta_100.png}
+{\begin{align*}
+\hat\alpha = 1.051 \pm 0.141
+\sp{}
+\hat\beta = 1.548 \pm 0.086
+\end{align*}}
+{
+Lighthouse model results with true $(\alpha, \beta) = (1.0, 1.5)$,
+$n = 10000$ lighthouse flashes (so roughly 5000 data points on the shore),
+and a chain length of $l = 100$. The traces converge quickly -- both
+are quite good by the 30th step. The \texttt{pymc} implementation of MCMC
+does not allow chain lengths of less than 100.
+}
+
+
+
+\end{document}
