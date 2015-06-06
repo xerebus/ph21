@@ -1,0 +1,293 @@
+\documentclass{article}
+
+% math, graphics, and formatting
+\usepackage{amsmath,amsbsy,amssymb,amsthm,fullpage,graphicx,pgfplots,breqn}
+\usepackage{verbatim,mathtools}
+
+% physics
+\usepackage{physics}
+\newcommand{\h}{\hbar}
+\renewcommand{\vec}{\mathbf}
+
+% Times New Roman
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\renewcommand{\mathbb}{\varmathbb}
+%\usepackage{libertine}
+%\usepackage[libertine]{newtxmath}
+
+% section numbering: e.g. 2b (ii)
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection\alph{subsection}}
+\renewcommand\thesubsubsection{\thesubsection\,(\roman{subsubsection})}
+
+% theorems & proofs
+\theoremstyle{definition}
+\newtheorem*{prop}{Claim}
+\newtheorem*{claim}{Claim}
+\newtheorem*{prob}{Problem}
+\newtheorem*{obs}{Observation}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{thm}{Theorem}
+\newtheorem*{disc}{Discussion}
+\newtheorem*{defn}{Definition}
+\newtheorem*{eg}{Example}
+
+% derivatives
+\newcommand{\pp}{\partial}
+\newcommand{\pd}[2]{\ensuremath\frac{\pp #1}{\pp #2}}
+\newcommand{\pdd}[2]{\ensuremath\frac{\pp^2 #1}{\pp #2^2}}
+\renewcommand{\dd}[2]{\ensuremath\frac{d#1}{d#2}}
+\newcommand{\ddd}[2]{\ensuremath\frac{d^2 #1}{d #2^2}}
+\newcommand{\del}{\nabla}
+
+% sets and complex numbers
+\newcommand{\R}{\mathbb R}
+\renewcommand{\Re}{\textrm{Re}}
+\renewcommand{\Im}{\textrm{Im}}
+%\renewcommand{\bar}{\overline}
+\newcommand{\nin}{\not\in}
+\newcommand{\str}[1]{\ensuremath{\langle #1 \rangle}}
+
+% probability and stats
+\renewcommand{\var}{\ensuremath\mathbf{Var}}
+\newcommand{\E}{\ensuremath\mathbf{E}}
+\renewcommand{\P}{\ensuremath\mathbf{P}}
+
+% measurement
+\newcommand{\un}[1]{\;\mathrm{#1}}
+\newcommand{\ch}[1]{\mathrm{#1}}
+
+% Greek letters are hard
+\newcommand{\ep}{\varepsilon}
+\newcommand{\om}{\omega}
+
+% formatting
+\renewcommand{\sp}[1]{\;\;\;\text{ #1 }\;\;\;}
+\newcommand{\cc}{\texttt}
+\newcommand{\plop}[3]{
+    \begin{figure}\centering
+        \includegraphics[width=0.8\textwidth]{#1}
+        {#2}\vspace{-20pt}
+        \caption{\label{#1}#3}
+    \end{figure}
+}
+\newcommand{\sbsplop}[4]{
+    \begin{figure}\centering
+        \includegraphics[width=0.49\textwidth]{#1}
+        \includegraphics[width=0.49\textwidth]{#2}
+        {#3}\vspace{-20pt}
+        \caption{\label{#1}#4}
+    \end{figure}
+}
+\newcommand{\tbplop}[4]{
+    \begin{figure}\centering
+        \includegraphics[width=0.8\textwidth]{#1}
+        \\
+        \includegraphics[width=0.8\textwidth]{#2}
+        {#3}\vspace{-20pt}
+        \caption{\label{#1}#4}
+    \end{figure}
+}
+
+\usepackage{fancyhdr}
+\usepackage[margin=1in, headheight=50pt]{geometry}
+\pagestyle{fancy}
+\lhead{\textbf{Ph21 Set 6}}
+\chead{}
+\rhead{Aritra Biswas}
+\setlength{\headsep}{20pt}
+
+\begin{document}
+
+\section{Summary of PCA}
+
+We summarize the results from Shlens' PCA tutorial.\footnote{J. Shlens,
+\textit{A Tutorial on Principal Component Analysis},
+\texttt{<http://arxiv.org/pdf/1404.1100.pdf>}}
+
+Consider an experiment on some system whose behavior is not known.
+Specifically, we don't know how many degrees of freedom the system has,
+what they are, or how to measure them.
+We ignorantly take measurements of $m$ different variables.
+For example, we could measure the positions
+of a moving particle along $m$ arbitrary and possibly non-orthogonal axes,
+or $m$ state variables of a thermodynamic system. We take $n$ data points,
+measuring all $m$ variables each time.
+
+We can group the data by time or by measurement type: let $\vec{x_i}$
+be the $m$-dimensional column vector of the $m$ measurements taken at
+a single point in time, and let $\vec{\tilde x_i}$ be the $n$-dimensional
+row vector of all measurements of a single variable. We arrange
+our data into an $m \times n$ matrix:
+\begin{align*}
+\vec X =
+\left(\begin{matrix}
+\vec{x_1} & \cdots & \vec{x_n}
+\end{matrix}\right)
+=
+\left(\begin{matrix}
+\vec{\tilde x_1} \\
+\vdots \\
+\vec{\tilde x_m}
+\end{matrix}\right)
+=
+\left(\begin{matrix}
+x_{11} & \cdots & x_{1n} \\
+\vdots & & \vdots \\
+x_{m1} & \cdots & x_{mn}
+\end{matrix}\right),
+\end{align*}
+such that the scalar entry $x_{ij}$
+is the $j$th measurement of the $i$th variable.
+
+The goal is to analyze $\vec X$ and recover the \emph{principal
+components} -- the true degrees of freedom
+of the system.
+We make two important assumptions:
+\begin{enumerate}
+\item \textbf{Linearity.} The principal components are linear combinations
+of the $m$ variables we measured. This is a strong assumption required
+for the linear algebra techniques that follow.
+\item \textbf{Signal spread.} The true degrees of freedom are the directions
+along which the data has the largest spread. This assumption presumes
+that the data has a high signal-to-noise ratio: the amplitude
+of the data is high compared to the amplitude of the noise.
+\end{enumerate}
+
+For simplicity, we further assume that the data for each of the $m$
+variables has mean zero. This is not a strong assumption: if it is
+not the case, we can simply subtract off the mean of each measurement
+type. Let $\ev{\vec x}$ denote the average value of the components of
+$\vec x$; then the transformed dataset would be:
+\begin{align*}
+\vec{X^*}
+= \vec X - \ev{\vec X}
+=
+\left(\begin{matrix}
+\vec{\tilde x_1} \\
+\vdots \\
+\vec{\tilde x_m}
+\end{matrix}\right)
+-
+\left(\begin{matrix}
+\ev{\vec{\tilde x_1}} & \cdots & \ev{\vec{\tilde x_1}} \\
+\vdots & & \vdots \\
+\ev{\vec{\tilde x_m}} & \cdots & \ev{\vec{\tilde x_m}}
+\end{matrix}\right),
+\end{align*}
+
+Let $\vec P$ be a matrix of row vectors $\vec{p_i}$, corresponding
+to the principal components in a way that will be derived below.
+We further define a transformed data matrix $\vec Y \equiv \vec P \vec X$:
+\begin{align*}
+\vec{P} = 
+\left(\begin{matrix}
+\vec{p_1} \\
+\vdots \\
+\vec{p_m}
+\end{matrix}\right)
+\sp{so}
+\vec Y = \vec P \vec X
+=
+\left(\begin{matrix}
+\vec{p_1} \\
+\vdots \\
+\vec{p_m}
+\end{matrix}\right)
+\left(\begin{matrix}
+\vec{x_1} & \cdots & \vec{x_n}
+\end{matrix}\right)
+=
+\left(\begin{matrix}
+\vec{p_1} \cdot \vec{x_1} & \cdots & \vec{p_1} \cdot \vec{x_n} \\
+\vdots & & \vdots \\
+\vec{p_m} \cdot \vec{x_1} & \cdots & \vec{p_m} \cdot \vec{x_n}
+\end{matrix}\right).
+\end{align*}
+Note that each column of $\vec Y$ is an $m$-dimensional vector
+whose components are the projections of $\vec{x_i}$ along the
+vectors $\vec{p_j}$. This represents a change of basis: the $\vec{p_j}$
+are the new basis vectors. This shows us how to tranform the data
+$\vec X$ into a dataset $\vec Y$ with a different basis.
+
+We now wish to choose a basis that identifies the principal components
+-- the independent degrees of freedom of the system. This independence
+can be measured by the covariance matrix:
+\begin{align*}
+\vec{C_X} \equiv {1 \over n} \vec{X} \vec{X^T}
+= 
+{1 \over n}
+\left(\begin{matrix}
+\vec{\tilde x_1} \\
+\vdots \\
+\vec{\tilde x_m}
+\end{matrix}\right)
+\left(\begin{matrix}
+\vec{\tilde x_1} & \cdots & \vec{\tilde x_n}
+\end{matrix}\right)
+= 
+{1 \over n}
+\left(\begin{matrix}
+\vec{\tilde x_1} \cdot \vec{\tilde x_1} & \cdots & \vec{\tilde x_1} \cdot \vec{\tilde x_m} \\
+\vdots & & \vdots \\
+\vec{\tilde x_m} \cdot \vec{\tilde x_1} & \cdots & \vec{\tilde x_m} \cdot \vec{x_m}
+\end{matrix}\right).
+\end{align*}
+Note that the $ij$th entry of this matrix is a dot product of the $i$th
+variable's measurement vector with the $j$th variable's, measuring how
+correlated these two variables are.
+
+If the different variables are
+uncorrelated, the off-diagonal terms will be zero and the correlation matrix
+will be diagonal. This is what we desire for the principal components.
+Thus, the problem of finding principal components has been reduced
+to finding the transformation matrix $\vec P$ such that $\vec{C_Y}$
+is diagonalized.
+
+Since $\vec Y = \vec P \vec X$, it is easy to algebraically show that:
+\begin{align*}
+\vec{C_Y} = \vec P \vec{C_X} \vec{P^T}.
+\end{align*}
+From several important results about diagonalization of matrices
+in linear algebra (proved in Shlens' paper and various other sources),
+we know that if we make the rows of $\vec P$ the eigenvectors of
+$\vec{C_X}$, then $\vec{C_Y}$ will be diagonalized. Thus, our computational
+steps are:
+\begin{enumerate}
+\item Transform $\vec X$ as mentioned above so that each row has mean zero.
+\item Compute $\vec{C_X}$.
+\item Find the eigenvectors $\vec{p_i}$ of $\vec{C_X}$.
+\item Construct the transformation matrix out of the eigenvectors:
+\begin{align*}
+\vec{P} = 
+\left(\begin{matrix}
+\vec{p_1} \\
+\vdots \\
+\vec{p_m}
+\end{matrix}\right).
+\end{align*}
+\item Return the matrix $\vec Y = \vec P \vec X$, which expresses the
+data in terms of the principal components.
+\end{enumerate}
+
+\section{Testing}
+
+Two tests of the above algorithm were performed with the functions
+\texttt{test_linear} and \texttt{test_multi} in \texttt{pca.py}.
+
+For the two-variable test, an uniform range of $x_i$'s was selected,
+and $y_i$'s were generated by $y_i = \kappa (2 + 4x_i)$, where $\kappa$
+is a noise factor with mean $1$ and standard deviation $0.05$.
+Repeated PCA analysis of various samples yields one principal component
+with spread $\sim 12$ and another with spread $\sim 0.2$.
+
+For the five-variable test, an uniform range of $t_i$'s was selected,
+and five variables were generated as above -- with a linear dependence
+on $t$ and a noise factor. Repeated PCA analysis yields one principal
+component with spread $\sim 18$ and four others with spread below 1.
+
+In each case, the fact that the system had only one non-noise degree
+of freedom was correctly identified.
+
+\end{document}
